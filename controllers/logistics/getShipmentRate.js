@@ -2,28 +2,26 @@ const { getShipmentRate }  = require('../../topship');
 
 const getShipmentRates = async(req, res) => {
     try { 
-        let {cityName, countryCode, totalWeight } = req.body
-        let shipmentDetails = {
-           shipmentDetail: {
+        let {senderCity, sendercountryCode, countryCode, cityName, totalWeight } = req.body
+       let shipmentDetail = {
                senderDetails: {
-                 cityName:string,
-                 countryCode:string
+                 cityName:senderCity,
+                 countryCode:sendercountryCode
                 },
                receiverDetails: {
                  cityName,
                  countryCode
                 },
                totalWeight
-            }
-        }
- let promise = getShipmentRate(shipmentDetails);
+       }
+ let promise = getShipmentRate(shipmentDetail);
         
 promise.then(
   response => {
   let states = response.data;
   return res.status(201).json({
     success: true,
-    msg: 'get states successfully',
+    msg: 'get shipment rate successfully',
     states
   });
   },

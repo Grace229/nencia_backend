@@ -19,7 +19,9 @@ let userSchema = new Schema(
       latitude: String,
       longitude:String,
       longName: String,
-      shortName: String
+      shortName: String,
+      country: String,
+      city: String
     },
     businessDescription: String,
     CAC_Reg_No: String,

@@ -18,13 +18,14 @@ let orderSchema = new Schema(
           ref: "user",
         },
         quantity: Number,
+        size: String,
         price: Number,
       },
     ],
-    totalPrice: {
-      type: Number,
-      required: true,
-    },
+    totalPrice: Number,
+    measurement: [],
+    buyerPhoto: String,
+    note: String,
     address: {
       type: Schema.Types.ObjectId,
       ref: "address",

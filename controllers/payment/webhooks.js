@@ -22,6 +22,9 @@ const newOrder = new Order({
   orderOwner: user,
   products: order.products,
   totalPrice: order.totalPrice,
+  measurement: order.measurement,
+  buyerPhoto: order.buyerPhoto,
+  note: order.note,
   address: order.address
 });
 await newOrder.save();
