@@ -22,9 +22,7 @@ console.log(order)
 
 const newOrder = new Order({
   orderOwner: user,
-  products: order.products.product,
-  quantity: order.quantity,
-  size: order.size,
+  products: order.products,
   totalPrice: order.totalPrice,
   measurement: order.measurement,
   buyerPhoto: order.buyerPhoto,
