@@ -64,9 +64,18 @@ exports.getCountries = async () => {
 
     //   get-shipment-rate
 
-    exports.getShipmentRate = async (shipmentDetails) => {
+    exports.getShipmentRate = async (obj) => {
+        console.log(obj)
         const options = {
-          url: `https://topship-staging.africa/api/get-shipment-rate?shipmentDetail=${shipmentDetails}`,
+          url: `https://topship-staging.africa/api/get-shipment-rate?shipmentDetail={"senderDetails": {
+            "cityName": ${obj.senderCity}
+            "countryCode": ${obj.senderCountryCode}
+          },
+          "receiverDetails": {
+            "cityName":  ${obj.cityName}
+            "countryCode":  ${obj.countryCode}
+          },
+          "totalWeight": ${obj.totalWeight} }`,
           headers: {
             authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
           },

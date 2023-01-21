@@ -5,7 +5,7 @@ const getAllCart = async (req, res) => {
     const allCarts = await Cart.find({})
       .populate("cartOwner")
       .populate("products.product")
-      .populate("address")
+      .exec()
     //   .populate({
     //     path: "comments",
 

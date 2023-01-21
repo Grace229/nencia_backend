@@ -6,6 +6,7 @@ const settingsRouter = require("./settings/settings.routes");
 const logisticRouter = require("./logistic/logistic.routes")
 
 const routers = (app) => {
+  
   app.use("/api/v1/auth", authRouter);
   app.use("/api/v1/product", productRouter);
   app.use("/api/v1/order", orderRouter);

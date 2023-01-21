@@ -20,7 +20,9 @@ let user = req.body.data.metadata.user_id
 let order = await Cart.findOne( { _id: cartID })
 const newOrder = new Order({
   orderOwner: user,
-  products: order.products,
+  products: order.products.product,
+  quantity: order.quantity,
+  size: order.size,
   totalPrice: order.totalPrice,
   measurement: order.measurement,
   buyerPhoto: order.buyerPhoto,
