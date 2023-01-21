@@ -3,7 +3,7 @@ const { Order } = require("../../models/Order");
 const getVendorOrders = async (req, res) => {
     try {
         let { vendorID } = req.params;
-        let order = await Order.find({ products: { $elemMatch: { vendorId: vendorID } } })
+        let order = await Order.find({ products: { $elemMatch: { vendorId: vendorID } } }).populate('cartOwner').populate('products.product').populate('products.vendorId').populate('address');
         if (!order)
           return res.status(500).json({ success: false, msg: "No Order Found" });
         return res.status(200).json({
