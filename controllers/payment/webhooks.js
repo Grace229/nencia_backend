@@ -18,6 +18,8 @@ if(req.body.event == "charge.success") {
 let cartID = req.body.data.metadata.cart_id
 let user = req.body.data.metadata.user_id
 let order = await Cart.findOne( { _id: cartID })
+console.log(order)
+
 const newOrder = new Order({
   orderOwner: user,
   products: order.products.product,
