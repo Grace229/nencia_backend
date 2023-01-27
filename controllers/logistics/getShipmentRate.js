@@ -1,14 +1,18 @@
 const { getShipmentRate }  = require('../../topship');
+const {Cart} = require('../../models/Cart')
 
 const getShipmentRates = async(req, res) => {
     try { 
-        let {senderCity, senderCountryCode, countryCode, cityName, totalWeight } = req.body
+        const { cartId } = req.params;
+        let cart = await Cart.findOne({ _id: cartId }).populate('cartOwner').populate('products.product').populate('products.vendorId').populate('address')
+       console.log(cart)
+        // let {senderCity, senderCountryCode, countryCode, cityName, totalWeight } = req.body
        let object ={
         
                 senderCity,
                  senderCountryCode,
-                 cityName,
-                 countryCode,
+                 cityName : cart.address.city,
+                 countryCode : cart.address.country,
                totalWeight
     }
  let promise = getShipmentRate(object);     

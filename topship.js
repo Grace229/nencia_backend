@@ -79,7 +79,7 @@ exports.getShipmentRate = async (obj) => {
     }
 //   };
   const options = {
-    url: `https://topship-staging.africa/api/get-shipment-rate?shipmentDetail=${JSON.stringify()}`,
+    url: `https://topship-staging.africa/api/get-shipment-rate?shipmentDetail=${JSON.stringify(shipmentDetail)}`,
     headers: {
       authorization: `Bearer ${process.env.TOPSHIP_STAGING_KEY}`,
     },

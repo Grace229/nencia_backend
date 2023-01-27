@@ -10,7 +10,7 @@ const router = express.Router();
 router.route("/get-countries").get( getCountry);
 router.route("/get-states").get( getState);
 router.route("/get-cities").get( getCity);
-router.route("/get-shipment-rate").post( getShipmentRates);
+router.route("/get-shipment-rate/:cartId").post( getShipmentRates);
 
 
 

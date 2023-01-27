@@ -2,18 +2,8 @@ const { Cart } = require("../../models/Cart");
 
 const getAllCart = async (req, res) => {
   try {
-    const allCarts = await Cart.find({})
-      .populate("cartOwner")
-      .populate("products.product")
-      .exec()
-    //   .populate({
-    //     path: "comments",
-
-    //     options: { sort: { _id: -1 } },
-    //     populate: {
-    //       path: "user",
-    //     },
-    //   });
+    const allCarts = await Cart.find()
+    .populate('cartOwner').populate('products.product').populate('products.vendorId').populate('address')
     if (!allCarts)
       return res.status(500).json({ success: false, msg: "No cart found" });
 
