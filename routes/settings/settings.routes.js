@@ -10,7 +10,7 @@ const addSizeChart = require("../../controllers/settings/addSizeChart");
 
 router.route("/get-banks").get(getBanks);
 
-router.route("/verify-account").get(verifyAccount);
+router.route("/verify-account").post(verifyAccount);
 
 router.route("/add-bank-details/:vendorId").post(addBankDetails);
 
