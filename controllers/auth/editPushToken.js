@@ -12,7 +12,7 @@ try {
     );
     return res.status(201).json({
         success: true,
-        msg: "Push Token Updated successfully",
+        msg: "Push Token updated successfully",
         result,
       });
   } catch (error) {

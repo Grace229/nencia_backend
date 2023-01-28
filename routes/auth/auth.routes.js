@@ -13,6 +13,7 @@ const getUser = require("../../controllers/auth/getUser");
 const addFollower = require("../../controllers/auth/addFollower");
 const { registerSchema, loginSchema } = require("../../middlewares/validation");
 const getUsers = require("../../controllers/auth/getUsers");
+const editPushToken = require("../../controllers/auth/editPushToken");
 const validation = require("express-joi-validation").createValidator({});
 
 router.post("/register", validation.body(registerSchema), createNewUser);
@@ -22,9 +23,8 @@ router.post("/login", validation.body(loginSchema), loginUser);
 router.route("/get-user/:userId").get(getUser);
 router.route("/get-users").get(getUsers);
 router.post("/confirm-user", confirmUserEmail);
-
+router.patch("/edit-token/:userId", editPushToken)
 router.post("/forgot-password", forgotPassword);
-
 router.post("/reset-password/:token", resetPassword);
 router.post("/add-follower/:vendorId", verifyToken, addFollower);
 
