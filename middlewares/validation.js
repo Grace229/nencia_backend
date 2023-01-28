@@ -10,6 +10,7 @@ const registerSchema = Joi.object({
     .trim()
     .regex(/^\+?[1-9]\d{1,14}$/),
   email: Joi.string().email().lowercase().required(),
+  userPushToken: Joi.string().min(5).required(),
   password: Joi.string().min(6).required(),
 });
 
@@ -21,6 +22,7 @@ const vendorRegisterSchema = Joi.object({
   email: Joi.string().email().lowercase().required(),
   password: Joi.string().min(6).required(),
   businessName: Joi.string().min(5).required(),
+  userPushToken: Joi.string().min(5).required(),
   businessAddress: Joi.object().required(),
   businessDescription: Joi.string().min(5).required(),
 });

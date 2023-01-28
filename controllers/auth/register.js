@@ -5,7 +5,7 @@ const randomstring = require("randomstring");
 
 const createNewUser = async (req, res, next) => {
   try {
-    let { fullname, phonenumber, email, password, ProfilePicture } = req.body;
+    let { fullname, phonenumber, email, password, ProfilePicture, userPushToken } = req.body;
     if (!fullname || !phonenumber || !email || !password)
       return res
         .status(400)
@@ -40,6 +40,7 @@ const createNewUser = async (req, res, next) => {
       password: hashedPassword,
       secretToken,
       ProfilePicture,
+      userPushToken
     });
 
     await newUser.save();

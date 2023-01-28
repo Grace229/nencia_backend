@@ -15,6 +15,7 @@ const createNewVendor = async (req, res, next) => {
       businessName,
       businessAddress,
       businessDescription,
+      userPushToken,
     } = req.body;
     if (!fullname || !phonenumber || !email || !password)
       return res
@@ -62,6 +63,7 @@ const createNewVendor = async (req, res, next) => {
       role: newRole,
       password: hashedPassword,
       secretToken,
+      userPushToken
     });
 
     await newUser.save();
