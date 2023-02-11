@@ -14,6 +14,7 @@ const deleteAddress = require("../../controllers/order/deleteAddress");
 const addMeasurement = require("../../controllers/cart/addMeasurement");
 const upload = require("../../config/multerSetup");
 const getUserOrders = require("../../controllers/order/getUserOrders");
+const getSingleOrder = require("../../controllers/order/getOrder");
 
 router.route("/create-address").post(verifyToken, createAddress);
 
@@ -30,6 +31,8 @@ router.route("/get-orders").get(verifyToken, getAllOrder);
 router.route("/vendor-orders/:vendorID").get(verifyToken, getVendorOrders);
 
 router.route("/user-orders/:userID").get(getUserOrders);
+
+router.route("/get-order/:orderId").get(getSingleOrder);
 
 router.route("/webhook").post(paystackWebHook);
 
