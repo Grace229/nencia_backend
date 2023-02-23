@@ -16,18 +16,7 @@ const deleteProduct = require("../../controllers/product/deleteProduct");
 router
   .route("/create-product")
   .post(verifyToken, upload.single("postMedia"), createProduct);
-/**
- * @swagger
- * /api/v1/product/get-category:
- * get:
- *     summary: To get all categories
- *     description: this is all categories
- *     responses:
- *      200:
- *          description: this is a categories thing
- *          content:
- *                 application/json
-*/
+
 router.route("/get-category").get(getAllCategories);
 
 router.route("/create-category").post(createCategory);

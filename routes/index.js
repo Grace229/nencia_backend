@@ -4,6 +4,7 @@ const orderRouter = require("./order/order.routes");
 const eventRouter = require("./event/event.routes");
 const settingsRouter = require("./settings/settings.routes");
 const logisticRouter = require("./logistic/logistic.routes")
+const catalogueRouter = require("../routes/catalogue/catalogue.routes")
 
 const routers = (app) => {
   
@@ -13,6 +14,8 @@ const routers = (app) => {
   app.use("/api/v1/event", eventRouter);
   app.use("/api/v1/settings", settingsRouter);
   app.use("/api/v1/logistics", logisticRouter);
+  app.use("/api/v1/catalogue", catalogueRouter);
+
 };
 
 module.exports = routers;
