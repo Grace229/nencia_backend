@@ -4,21 +4,7 @@ const cloudinarySetup = require("../../config/cloudinarySetup");
 
 const createCatalogue = async (req, res) => {
   let { title, price, description } = req.body;
-//   let image = "";
-//   const files = req.files;
-//   const urls = [];
-//   for (const file of files) {
-//     cloudinary.uploader.upload(file.path, function(error, result) {
-//       if (error) {
-//         console.error(error);
-//       } else {
-//         urls.push(result.secure_url);
-//         if (urls.length === files.length) {
-//           res.send(urls);
-//         }
-//       }
-//     });
-//   }
+
   const files = req.files;
   const urls = [];
   for (const file of files) {

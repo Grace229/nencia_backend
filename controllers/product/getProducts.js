@@ -1,5 +1,4 @@
 const { Product } = require("../../models/Product");
-const db = require("../../firebase/index")
 
 const getAllProducts = async (req, res) => {
   try {
@@ -12,14 +11,6 @@ const getAllProducts = async (req, res) => {
           path: "user",
         },
       });
-      const docRef = db.collection('Notifications').doc('alovelace');
-      await docRef.set({
-        msg: "Hey welcome to nuncio",
-        recieverPushToken: "ddshvgyydqwyy6dqw67yqw7eqw777wqqjh",
-        title: "Welcome",
-        type:"accountCreated"
-      });
-
     if (!allProducts)
       return res.status(500).json({ success: false, msg: "No products found" });
 
