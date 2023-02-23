@@ -64,7 +64,6 @@ exports.getCities = async (countryCode) => {
 //   get-shipment-rate
 
 exports.getShipmentRate = async (obj) => {
-  console.log(obj);
 //   const params = {
    const shipmentDetail = {
       senderDetails: {
