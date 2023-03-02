@@ -6,10 +6,8 @@ const createNewProduct = async (req, res) => {
   let { productPrice, description, productType, sizes, yards } = req.body;
 
   let image = "";
-
   if (req.file) {
     await cloudinarySetup();
-
     const uploadedMedia = await cloudinary.uploader.upload(req.file.path, {
       resource_type: "auto",
     });

@@ -4,14 +4,22 @@ const cloudinarySetup = require('../../config/cloudinarySetup');
 
 const addProfilePicture = async (req, res, next) => {
   try {
+    let { fullname, phonenumber, email } = req.body;
     let  userId  = req.user._id;
-    let objectField = {};
-    if (req.file) {
-        await cloudinarySetup();
-        const uploadedMedia = await cloudinary.uploader.upload(req.file.path, { resource_type: "auto" });
-        objectField.ProfilePicture = uploadedMedia.secure_url;
-    }
-
+  let image = "";
+  if (req.file) {
+    await cloudinarySetup();
+    const uploadedMedia = await cloudinary.uploader.upload(req.file.path, {
+      resource_type: "auto",
+    });
+    image = uploadedMedia.secure_url;
+  }
+let objectField = {
+  fullname,
+  email,
+  phonenumber,
+  ProfilePicture: image
+}
     await User.findByIdAndUpdate(
         { _id: userId }, 
         { $set: objectField }, 
