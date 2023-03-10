@@ -6,6 +6,8 @@ let productSchema = new Schema(
     productPrice: String,
     description: String,
     productImage: String,
+    //the reson for showing any user this product like, new, production from a close friend, promotion, etc
+    reason: String,
     productType: {
       type: String,
       enum: ["Dress", "Fabric"],

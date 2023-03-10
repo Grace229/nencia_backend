@@ -21,7 +21,7 @@ router.route("/get-category").get(getAllCategories);
 
 router.route("/create-category").post(createCategory);
 
-router.route("/get-products").get(getAll);
+router.route("/get-products").get(verifyToken, getAll);
 
 router.route("/get-product/:productId").get(getProduct);
 
