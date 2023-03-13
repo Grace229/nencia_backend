@@ -1,4 +1,4 @@
-const { Catalogue } = require("../../models/Catalogue");
+const { Product } = require("../../models/Product");
 const cloudinary = require("cloudinary").v2;
 const cloudinarySetup = require("../../config/cloudinarySetup");
 
@@ -16,13 +16,16 @@ const createCatalogue = async (req, res) => {
   }
 
 
+  let newPost = "Catalogue";
   let user = req.user._id;
-  const newCatalogue = new Catalogue({
+  const newCatalogue = new Product({
     title,
-    price,
+    productPrice: price,
     description,
-    productImage: urls,
-    owner: user,
+    catalogueImage: urls,
+    postType: newPost,
+    author: user,
+
   });
 
   if (!newCatalogue)

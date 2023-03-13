@@ -14,13 +14,14 @@ const createNewProduct = async (req, res) => {
     image = uploadedMedia.secure_url;
   }
   let user = req.user._id;
-
+let newPost = "Product"
   const newProduct = new Product({
     productPrice,
     description,
     productType,
     sizes,
     yards,
+    postType: newPost,
     productImage: image,
     author: user,
   });

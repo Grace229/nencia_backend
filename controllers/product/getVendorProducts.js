@@ -3,7 +3,7 @@ const { Product } = require("../../models/Product");
 const getVendorProduct = async (req, res) => {
   try {
     let { userId } = req.params;
-    let products = await Product.find({ author: userId })
+    let products = await Product.find({ author: userId, postType: "Product" })
       .sort({ _id: -1 })
       .populate("author")
       .populate({

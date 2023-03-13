@@ -3,6 +3,8 @@ const { model, Schema } = mongoose;
 
 let productSchema = new Schema(
   {
+    title: String,
+    catalogueImage: Array,
     productPrice: String,
     description: String,
     productImage: String,
@@ -12,6 +14,11 @@ let productSchema = new Schema(
       type: String,
       enum: ["Dress", "Fabric"],
       default: "Dress",
+    },
+    postType: {
+      type: String,
+      enum: ["Product", "Catalogue"],
+      default: "Product",
     },
     sizes: { type: Array },
     yards: String,

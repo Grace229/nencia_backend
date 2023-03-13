@@ -1,10 +1,10 @@
-const { Catalogue } = require("../../models/Catalogue");
+const { Product } = require("../../models/Product");
 
 const getCatalogue = async (req, res) => {
   try {
     let  {vendorId}  =  req.params;
-    const userCatalogue = await Catalogue.find({ owner : vendorId})
-      .populate("owner")
+    const userCatalogue = await Product.find({ author : vendorId, postType: 'Catalogue'})
+      .populate("author")
     if (!userCatalogue)
       return res.status(500).json({ success: false, msg: "No Catalogue found" });
     return res.status(200).json({

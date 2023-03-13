@@ -5,7 +5,7 @@ const axios = require("axios");
 const API_KEY = "AIzaSyBVaUyM2tAM70e81HCecdQ8Zbn2fZQoSSY";
 const getAllProducts = async (req, res) => {
   try {
-    const allProducts = await Product.find({})
+    const allProducts = await Product.find({postType: "Product"})
       .populate("author")
       .populate({
         path: "comments",

@@ -3,10 +3,7 @@ const { model, Schema } = mongoose;
 
 let catalogueSchema = new Schema(
   {
-    title: String,
-    price: String,
-    description: String,
-    productImage: Array,
+    
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
