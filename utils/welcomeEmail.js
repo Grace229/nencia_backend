@@ -16,7 +16,7 @@ const welcomeEmail = async (req, fullname, email, secretToken) => {
     <br/>
     Cheers,
     <br/>
-    <strong>Nencia Team</strong>
+    <strong>NENCIA Team</strong>
   `;
 
   await sendEmail("support@nencia.com", email, "Welcome to Nencia", html);

@@ -8,19 +8,19 @@ const passwordEmail = async (req, token, inputEmail, fullname) => {
     You can copy and paste the following code <strong>${token}</strong> 
     to reset your password or follow the link below,
     <br/><br/>
-    Confirmation Link: http://${req.headers.host}/user/reset-password/${token}
+    // Confirmation Link: http://${req.headers.host}/user/reset-password/${token}
     <br/>
     <br/>
     <br/>
     Cheers,
     <br/>
-    <strong>WAAWCHAT Team</strong>
+    <strong>NENCIA Team</strong>
   `;
 
   await sendEmail(
     "support@waawchat.com",
     inputEmail,
-    "Welcome to WAAWChat",
+    "Forgot Password?",
     html
   );
 };

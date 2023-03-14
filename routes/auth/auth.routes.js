@@ -15,6 +15,7 @@ const { registerSchema, loginSchema } = require("../../middlewares/validation");
 const getUsers = require("../../controllers/auth/getUsers");
 const editPushToken = require("../../controllers/auth/editPushToken");
 const getVendors = require("../../controllers/auth/getVendor");
+const getUnfollowedVendors = require("../../controllers/auth/getUnfollowedVendor");
 const validation = require("express-joi-validation").createValidator({});
 
 router.post("/register", validation.body(registerSchema), createNewUser);
@@ -24,6 +25,7 @@ router.post("/login", validation.body(loginSchema), loginUser);
 router.route("/get-user/:userId").get(getUser);
 router.route("/get-users").get(getUsers);
 router.route("/get-vendors").get(getVendors);
+router.route("/get-unfollowed-vendors").get(verifyToken, getUnfollowedVendors);
 router.post("/confirm-user", confirmUserEmail);
 router.patch("/edit-token/:userId", editPushToken)
 router.post("/forgot-password", forgotPassword);
